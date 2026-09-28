@@ -1,0 +1,16 @@
+### Test 2 & 3 : Connexion (Obtenir le Token)
+POST http://localhost/tp-jwt/api/login.php
+Content-Type: application/json
+
+{
+    "email": "tech1@geotech.fr",
+    "password": "secure456"
+}
+
+### Test 4 : Accéder à ma ressource privée (Rôle TECHNICIEN connecté)
+GET http://localhost/tp-jwt/api/me.php
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdHAtand0LnRlc3QiLCJhdWQiOiJodHRwOi8vdHAtand0LnRlc3QiLCJpYXQiOjE3ODg3OTQ1NjAsImV4cCI6MTc4ODc5NTQ2MCwiZGF0YSI6eyJpZCI6MiwiZW1haWwiOiJ0ZWNoMUBnZW90ZWNoLmZyIiwicm9sZSI6IlRFQ0hOSUNJRU4ifX0.P4jyvCZdP6wcvx_OATmhPso6VbXXGieh7c28mVxvgoE
+
+### Test 5 : Accéder à la zone Admin (Interdit au TECHNICIEN)
+POST http://localhost/tp-jwt/api/admin.php
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdHAtand0LnRlc3QiLCJhdWQiOiJodHRwOi8vdHAtand0LnRlc3QiLCJpYXQiOjE3ODg3OTQ1NjAsImV4cCI6MTc4ODc5NTQ2MCwiZGF0YSI6eyJpZCI6MiwiZW1haWwiOiJ0ZWNoMUBnZW90ZWNoLmZyIiwicm9sZSI6IlRFQ0hOSUNJRU4ifX0.P4jyvCZdP6wcvx_OATmhPso6VbXXGieh7c28mVxvgoE
